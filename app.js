@@ -33,7 +33,7 @@ app.use(cookieParser());
 
 app.use(session({
   secret: 'putthissecretinanotherfileforproduction',
-  saveUnitialized: true,
+  saveUninitialized: true,
   resave: true
 }));
 
