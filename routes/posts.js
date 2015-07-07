@@ -19,6 +19,7 @@ router.post('/add', function(req, res, next){
     var author = req.body.author;
     var date = new Date();
     
+    
     if(req.files.mainimage) {
         var mainImageOriginalName = req.files.mainimage.originalName;
         var mainImageName = req.files.mainimage.name;
@@ -49,7 +50,7 @@ router.post('/add', function(req, res, next){
             'category': category,
             'date': date,
             'author': author,
-            'mainimage': mainimage
+            'mainimage': mainImageName
         }, function(err, post){
             if(err){
                 res.send('There was an issue submitting the post');

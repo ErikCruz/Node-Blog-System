@@ -17,10 +17,16 @@ block content
                     option(value='#{categoria.title}') #{categoria.title}
         .form-group
             label Body
-            textarea.form-control(name='mainimage', type='file')
+            textarea.form-control(name='body', id='body')
+        .form-group
+            label Main Image:
+            input.form-control(name='mainimage', type='file')
         .form-group
             label Author:
             select.form-control(name='author')
                 option(value='Brad Traversy') Brad Traversy
                 option(value='John Doe') John Doe
         input.btn.btn-default(name='submit', type='submit', value='Save')
+        script(type='text/javascript', src='/ckeditor/ckeditor.js')
+        script(type='text/javascript').
+            CKEDITOR.replace('body');
