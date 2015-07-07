@@ -13,6 +13,8 @@ block content
         .form-group
             label Category
             select.form-control(name='category')
+                each categoria, i in categories
+                    option(value='#{categoria.title}') #{categoria.title}
         .form-group
             label Body
             textarea.form-control(name='mainimage', type='file')
