@@ -7,6 +7,7 @@ router.get('/show/:category', function(req, res, next){
     var db = req.db;
     var posts = db.get('posts');
     posts.find({category: req.params.category}, {}, function(err, posts){
+        if(err) throw err;
         res.render('index', {'title': req.params.category, 'posts': posts});    
     });
 });

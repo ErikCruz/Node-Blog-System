@@ -3,6 +3,14 @@ var router = express.Router();
 var mongo = require('mongodb');
 var db = require('monk')('localhost/nodeblog');
 
+router.get('/show/:id', function(req, res, next){
+   var posts = db.get('posts');
+   posts.findById(req.params.id, function(err, post){
+      if(err) throw err;
+      res.render('show', {'title': post.title, 'post': post});
+   });
+});
+
 router.get('/add', function(req, res, next){
     var categories = db.get('categories');
     categories.find({},{}, function(err, categories){
